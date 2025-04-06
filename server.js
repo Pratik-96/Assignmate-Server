@@ -7,13 +7,11 @@ app.use(express.json());
 const cors = require("cors");
 const User = require('./models/User');
 const admin = require("./FirebaseAdmin");
+require('dotenv').config();
 
 app.use(cors());
 
-mongoose.connect("mongodb+srv://admin:assignmate%231404@tcs.jny5wko.mongodb.net/", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => console.log("MongoDB Connected"))
+mongoose.connect(process.env.MONGOURI).then(() => console.log("MongoDB Connected"))
   .catch(() => console.log("Connection error"))
 
 
