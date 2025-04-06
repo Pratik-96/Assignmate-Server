@@ -34,9 +34,9 @@ app.post('/register', async (req, res) => {
     const newUser = new User({ username, name, password });
     await newUser.save();
 
-    res.status(201).json({ message: "User registered successfully." });
+    return res.status(201).json({ message: "User registered successfully." });
   } catch (error) {
-    res.status(500).json({ message: "Registration failed.", error: error.message });
+    return res.status(500).json({ message: "Registration failed.", error: error.message });
   }
 });
 
@@ -54,9 +54,9 @@ app.post('/login', async (req, res) => {
       return res.status(401).json({ message: "Invalid username or password." });
     }
 
-    res.status(200).json({ message: "Login successful", user: { username: user.username, name: user.name } });
+    return res.status(200).json({ message: "Login successful", user: { username: user.username, name: user.name } });
   } catch (error) {
-    res.status(500).json({ message: "Login failed.", error: error.message });
+   return  res.status(500).json({ message: "Login failed.", error: error.message });
   }
 });
 
@@ -99,12 +99,12 @@ app.post("/addAssignment", async (req, res) => {
     await admin.messaging().send(message);
 
 
-    res.status(201).json({
+    return res.status(201).json({
       message: "Assignment Posted.!!"
     })
 
   } catch (error) {
-    res.status(500).json({ error: "Error adding assignment", details: error.message });
+    return res.status(500).json({ error: "Error adding assignment", details: error.message });
 
   }
 })
@@ -151,10 +151,10 @@ app.get("/assignments", async (req, res) => {
       };
     });
 
-    res.status(200).json(formattedAssignments);
+    return res.status(200).json(formattedAssignments);
 
   } catch (error) {
-    res.status(500).json({ error: "Failed to fetch assignments", details: error.message });
+    return res.status(500).json({ error: "Failed to fetch assignments", details: error.message });
   }
 });
 
@@ -190,19 +190,19 @@ app.get("/allAssignments", async (req, res) => {
       };
     });
 
-    res.status(200).json(formattedAssignments);
+    return res.status(200).json(formattedAssignments);
 
   } catch (error) {
-    res.status(500).json({ error: "Failed to fetch assignments", details: error.message });
+    return res.status(500).json({ error: "Failed to fetch assignments", details: error.message });
   }
 });
 
 
 
 app.get('/', (req, res) => {
-  res.status(200).json({ message: 'Assignmate server running!' }); // Respond with "Hello World!" on the root route
+  return res.status(200).json({ message: 'Assignmate server running!' }); // Respond with "Hello World!" on the root route
 });
 
 app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+  return console.log(`Server listening on port ${port}`);
 });
