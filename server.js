@@ -118,8 +118,8 @@ app.post("/addAssignment", async (req, res) => {
 
 app.get("/getSchedule", async (req, res) => {
   return res.status(200).json({
-    week: "Week 15",
-    schedule: "https://tcscomprod.sharepoint.com/:x:/s/TD_IgniteManagementTeam-TrainingOperations/Ecxpfi42OC5BnYrirBjGdcABjhXtGX4ur1RzNFuAfx5Lsg?e=bCqFzn"
+    week: "Week 16",
+    schedule: "https://tcscomprod.sharepoint.com/:x:/s/TD_IgniteManagementTeam-TrainingOperations/EV0Qf_Imkl5GmvrqCzrsjIYB6ANktPcC-3MrEOjUrMXsig?e=yhxasx"
   });
 });
 
